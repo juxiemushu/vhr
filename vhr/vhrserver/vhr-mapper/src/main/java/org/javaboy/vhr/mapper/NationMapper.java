@@ -1,9 +1,11 @@
 package org.javaboy.vhr.mapper;
 
+import org.apache.ibatis.annotations.Mapper;
 import org.javaboy.vhr.model.Nation;
 
 import java.util.List;
 
+@Mapper
 public interface NationMapper {
     int deleteByPrimaryKey(Integer id);
 

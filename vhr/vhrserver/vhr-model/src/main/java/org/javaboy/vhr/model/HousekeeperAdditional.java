@@ -2,18 +2,22 @@ package org.javaboy.vhr.model;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
+
 import java.util.Date;
+
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.TableField;
+
 import java.io.Serializable;
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
 /**
  * <p>
- * 
+ *
  * </p>
  *
  * @author wsp
@@ -24,9 +28,9 @@ import lombok.experimental.Accessors;
 @Accessors(chain = true)
 public class HousekeeperAdditional extends Model<HousekeeperAdditional> {
 
-    private static final long serialVersionUID=1L;
+    private static final long serialVersionUID = 1L;
 
-      @TableId(value = "id", type = IdType.AUTO)
+    @TableId(value = "id", type = IdType.AUTO)
     private Long id;
 
     /**
@@ -53,25 +57,25 @@ public class HousekeeperAdditional extends Model<HousekeeperAdditional> {
     /**
      * 创建人
      */
-      @TableField(fill = FieldFill.INSERT)
+    @TableField(fill = FieldFill.INSERT)
     private String creator;
 
     /**
      * 修改人
      */
-      @TableField(fill = FieldFill.INSERT_UPDATE)
+    @TableField(fill = FieldFill.INSERT_UPDATE)
     private String modifier;
 
     /**
      * 创建时间
      */
-      @TableField(fill = FieldFill.INSERT)
+    @TableField(fill = FieldFill.INSERT)
     private Date createTime;
 
     /**
      * 更新时间
      */
-      @TableField(fill = FieldFill.INSERT_UPDATE)
+    @TableField(fill = FieldFill.INSERT_UPDATE)
     private Date modifiedTime;
 
     /**

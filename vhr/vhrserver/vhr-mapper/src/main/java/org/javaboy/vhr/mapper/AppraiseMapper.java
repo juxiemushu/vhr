@@ -1,7 +1,9 @@
 package org.javaboy.vhr.mapper;
 
+import org.apache.ibatis.annotations.Mapper;
 import org.javaboy.vhr.model.Appraise;
 
+@Mapper
 public interface AppraiseMapper {
     int deleteByPrimaryKey(Integer id);
 

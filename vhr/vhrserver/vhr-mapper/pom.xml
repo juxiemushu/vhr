@@ -30,7 +30,7 @@
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>druid-spring-boot-starter</artifactId>
-            <version>1.1.10</version>
+            <version>1.2.16</version>
         </dependency>
         <!--引入mybatis-plus代码生成器依赖-->
         <dependency>

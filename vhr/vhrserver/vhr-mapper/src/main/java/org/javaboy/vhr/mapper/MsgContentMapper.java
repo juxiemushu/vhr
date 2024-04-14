@@ -1,7 +1,9 @@
 package org.javaboy.vhr.mapper;
 
+import org.apache.ibatis.annotations.Mapper;
 import org.javaboy.vhr.model.MsgContent;
 
+@Mapper
 public interface MsgContentMapper {
     int deleteByPrimaryKey(Integer id);
 

@@ -1,6 +1,7 @@
 package org.javaboy.vhr.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Mapper;
 import org.javaboy.vhr.model.Housekeeper;
 
 /**
@@ -11,6 +12,10 @@ import org.javaboy.vhr.model.Housekeeper;
  * @author wsp
  * @since 2024-04-14
  */
+
+@Mapper
 public interface HousekeeperMapper extends BaseMapper<Housekeeper> {
+
+    Housekeeper findById(Long id);
 
 }

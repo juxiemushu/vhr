@@ -1,11 +1,13 @@
 package org.javaboy.vhr.mapper;
 
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.javaboy.vhr.model.Employee;
 
 import java.util.Date;
 import java.util.List;
 
+@Mapper
 public interface EmployeeMapper {
     int deleteByPrimaryKey(Integer id);
 

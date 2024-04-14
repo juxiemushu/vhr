@@ -1,4 +1,4 @@
-package org.javaboy.vhr.controller.housekeeper.request;
+package org.javaboy.vhr.model.housekeeper.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -11,9 +11,9 @@ import java.io.Serializable;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class HousekeeperQueryRequest implements Serializable {
+public class HousekeeperResponse implements Serializable {
 
-    private static final long serialVersionUID = -3254896982703977571L;
+    private static final long serialVersionUID = 8308743404672273201L;
 
     private Long id;
 
