@@ -43,10 +43,4 @@
             creator, modifier, create_time, modified_time, version
     </sql>
 
-    <select id="findById" parameterType="java.lang.Long"
-            resultType="org.javaboy.vhr.model.Housekeeper">
-        select * from housekeeper
-        where id = #{id}
-    </select>
-
 </mapper>

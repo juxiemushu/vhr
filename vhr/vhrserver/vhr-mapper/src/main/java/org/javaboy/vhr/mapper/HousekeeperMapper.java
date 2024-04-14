@@ -16,6 +16,4 @@ import org.javaboy.vhr.model.Housekeeper;
 @Mapper
 public interface HousekeeperMapper extends BaseMapper<Housekeeper> {
 
-    Housekeeper findById(Long id);
-
 }

@@ -9,6 +9,7 @@ import org.javaboy.vhr.model.Housekeeper;
 import org.javaboy.vhr.model.HousekeeperAdditional;
 import org.javaboy.vhr.model.ServiceExperience;
 import org.javaboy.vhr.model.housekeeper.request.HousekeeperRequest;
+import org.javaboy.vhr.model.housekeeper.response.HousekeeperResponse;
 import org.javaboy.vhr.utils.DateUtils;
 
 import java.util.Collections;
@@ -59,13 +60,15 @@ public class HousekeeperConverter {
             return Collections.emptyList();
         }
 
-        if (CollectionUtils.isNotEmpty(source.getHousekeeperAdditions())) {
+        if (CollectionUtils.isEmpty(source.getHousekeeperAdditions())) {
             return Collections.emptyList();
         }
         source.getHousekeeperAdditions().forEach(item -> {
+            item.setRelateId(source.getId());
             if (StringUtils.isBlank(item.getStatus())) {
                 item.setStatus(HousekeeperAdditionalConstant.Status.VALID.name());
             }
+            item.setCreator("wsp");
             item.setCreateTime(DateUtils.now());
             item.setModifiedTime(DateUtils.now());
         });
@@ -77,13 +80,16 @@ public class HousekeeperConverter {
             return Collections.emptyList();
         }
 
-        if (CollectionUtils.isNotEmpty(source.getEducationalExperiences())) {
+        if (CollectionUtils.isEmpty(source.getEducationalExperiences())) {
             return Collections.emptyList();
         }
         source.getEducationalExperiences().forEach(item -> {
+            item.setRelateType(EducationalExperienceConstant.RelateType.HOUSE_KEEPER.name());
+            item.setRelateId(source.getId());
             if (StringUtils.isBlank(item.getStatus())) {
                 item.setStatus(EducationalExperienceConstant.Status.VALID.name());
             }
+            item.setCreator("wsp");
             item.setCreateTime(DateUtils.now());
             item.setModifiedTime(DateUtils.now());
         });
@@ -95,10 +101,48 @@ public class HousekeeperConverter {
             return Collections.emptyList();
         }
 
-        if (CollectionUtils.isNotEmpty(source.getServiceExperiences())) {
+        if (CollectionUtils.isEmpty(source.getServiceExperiences())) {
             return Collections.emptyList();
         }
         return source.getServiceExperiences();
+    }
+
+    public static HousekeeperResponse convert(Housekeeper source) {
+        if (Objects.isNull(source)) {
+            return null;
+        }
+
+        return HousekeeperResponse.builder()
+                .id(source.getId())
+                .type(source.getType())
+                .name(source.getName())
+                .avatar(source.getAvatar())
+                .gender(source.getGender())
+                .nation(source.getNation())
+                .age(source.getAge())
+                .mobile(source.getMobile())
+                .phone(source.getPhone())
+                .status(source.getStatus())
+                .education(source.getEducation())
+                .graduateSchool(source.getGraduateSchool())
+                .specializedSubject(source.getSpecializedSubject())
+                .marriage(source.getMarriage())
+                .drProvince(source.getDrProvince())
+                .drCity(source.getDrCity())
+                .drArea(source.getDrArea())
+                .drDetails(source.getDrDetails())
+                .crProvince(source.getCrProvince())
+                .crCity(source.getCrCity())
+                .crArea(source.getCrArea())
+                .crDetails(source.getCrDetails())
+                .targetCity(source.getTargetCity())
+                .introduction(source.getIntroduction())
+                .creator(source.getCreator())
+                .createTime(DateUtils.now())
+                .modifier(source.getModifier())
+                .modifiedTime(DateUtils.now())
+                .version(source.getVersion())
+                .build();
     }
 
 }

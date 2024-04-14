@@ -29,20 +29,30 @@ public class HouseKeeperController {
             if (result) {
                 return RespBean.ok();
             }
-            return RespBean.error("家政服务建立创建失败");
+            return RespBean.error("简历创建失败");
         } catch (Exception e) {
-            LOGGER.error("家政服务场景失败", e);
+            LOGGER.error("简历创建异常", e);
             return RespBean.error(e.getMessage());
         }
     }
 
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     public RespBean modify(@RequestBody HousekeeperRequest request) {
-        return RespBean.ok();
+        try {
+            boolean result = iHousekeeperService.modify(request);
+            if (result) {
+                return RespBean.ok();
+            }
+            return RespBean.error("简历更新失败");
+        } catch (Exception e) {
+            LOGGER.error("简历更新异常", e);
+            return RespBean.error(e.getMessage());
+        }
     }
 
     @RequestMapping(value = "/details", method = RequestMethod.GET)
     public RespBean findById(@RequestBody IdRequest idRequest) {
+        HousekeeperResponse response = iHousekeeperService.findById(idRequest);
         return RespBean.ok();
     }
 
