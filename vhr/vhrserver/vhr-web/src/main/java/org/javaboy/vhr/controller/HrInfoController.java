@@ -58,7 +58,7 @@ public class HrInfoController {
     }
 
     @PostMapping("/hr/userface")
-    public RespBean updateHrUserface(MultipartFile file, Integer id,Authentication authentication) {
+    public RespBean updateHrUserface(MultipartFile file, Integer id, Authentication authentication) {
         String fileId = FastDFSUtils.upload(file);
         String url = nginxHost + fileId;
         if (hrService.updateUserface(url, id) == 1) {

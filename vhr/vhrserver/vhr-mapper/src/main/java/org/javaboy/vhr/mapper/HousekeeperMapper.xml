@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.javaboy.vhr.mapper.HousekeeperMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="org.javaboy.vhr.model.Housekeeper">
+        <id column="id" property="id"/>
+        <result column="type" property="type"/>
+        <result column="name" property="name"/>
+        <result column="avatar" property="avatar"/>
+        <result column="gender" property="gender"/>
+        <result column="nation" property="nation"/>
+        <result column="age" property="age"/>
+        <result column="mobile" property="mobile"/>
+        <result column="phone" property="phone"/>
+        <result column="status" property="status"/>
+        <result column="education" property="education"/>
+        <result column="graduate_school" property="graduateSchool"/>
+        <result column="specialized_subject" property="specializedSubject"/>
+        <result column="marriage" property="marriage"/>
+        <result column="dr_province" property="drProvince"/>
+        <result column="dr_city" property="drCity"/>
+        <result column="dr_area" property="drArea"/>
+        <result column="dr_details" property="drDetails"/>
+        <result column="cr_province" property="crProvince"/>
+        <result column="cr_city" property="crCity"/>
+        <result column="cr_area" property="crArea"/>
+        <result column="cr_details" property="crDetails"/>
+        <result column="target_city" property="targetCity"/>
+        <result column="introduction" property="introduction"/>
+        <result column="remarks" property="remarks"/>
+        <result column="creator" property="creator"/>
+        <result column="modifier" property="modifier"/>
+        <result column="create_time" property="createTime"/>
+        <result column="modified_time" property="modifiedTime"/>
+        <result column="version" property="version"/>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, type, name, avatar, gender, nation, age, mobile, phone, status, education, graduate_school, specialized_subject, marriage,
+            dr_province, dr_city, dr_area, dr_details, cr_province, cr_city, cr_area, cr_details, target_city, introduction, remarks,
+            creator, modifier, create_time, modified_time, version
+    </sql>
+
+    <insert id="insert">
+
+    </insert>
+
+</mapper>

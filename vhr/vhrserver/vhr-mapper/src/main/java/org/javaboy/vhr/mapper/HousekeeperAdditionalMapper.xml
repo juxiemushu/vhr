@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.javaboy.vhr.mapper.HousekeeperAdditionalMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="org.javaboy.vhr.model.HousekeeperAdditional">
+        <id column="id" property="id" />
+        <result column="relate_id" property="relateId" />
+        <result column="status" property="status" />
+        <result column="additional_key" property="additionalKey" />
+        <result column="additionalVal" property="additionalVal" />
+        <result column="creator" property="creator" />
+        <result column="modifier" property="modifier" />
+        <result column="create_time" property="createTime" />
+        <result column="modified_time" property="modifiedTime" />
+        <result column="version" property="version" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, relate_id, status, additional_key, additionalVal, creator, modifier, create_time, modified_time, version
+    </sql>
+
+</mapper>

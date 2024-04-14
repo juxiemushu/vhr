@@ -12,7 +12,7 @@ import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TableCodeInitialization {
+public class TableCodeGenerator {
 
     /**
      * 数据库地址
@@ -33,11 +33,11 @@ public class TableCodeInitialization {
     /**
      * 存放路径，包路径
      */
-    private static final String PACKAGE = "com.example.mybatis_generation";
+    private static final String PACKAGE = "org.javaboy.vhr";
     /**
      * 需要生成的数据库表名，数组，可多个
      */
-    private static final String[] TABLE_NAME = {"json_data"};
+    private static final String[] TABLE_NAME = {"housekeeper_additional", "service_experience", "educational_experience"};
 
     public static void main(String[] args) {
 
@@ -45,8 +45,8 @@ public class TableCodeInitialization {
         GlobalConfig config = new GlobalConfig();
         String path = System.getProperty("user.dir");
         config.setActiveRecord(true)
-                .setAuthor("qiDing")
-                .setOutputDir(path+"\\src\\main\\java\\")
+                .setAuthor("wsp")
+                .setOutputDir(path+"src/main/java")
                 .setBaseResultMap(true)
                 .setBaseColumnList(true)
                 .setFileOverride(fileOverride);
@@ -74,13 +74,10 @@ public class TableCodeInitialization {
 
         //****************************** Policy configuration ******************************************************
         List<TableFill> tableFillList = new ArrayList<>();
-        tableFillList.add(new TableFill("gmt_modified", FieldFill.INSERT_UPDATE));
-        tableFillList.add(new TableFill("modifier_id", FieldFill.INSERT_UPDATE));
-        tableFillList.add(new TableFill("creator_id", FieldFill.INSERT));
-        tableFillList.add(new TableFill("gmt_create", FieldFill.INSERT));
-        tableFillList.add(new TableFill("available_flag", FieldFill.INSERT));
-        tableFillList.add(new TableFill("deleted_flag", FieldFill.INSERT));
-        tableFillList.add(new TableFill("sync_flag", FieldFill.INSERT));
+        tableFillList.add(new TableFill("modifier", FieldFill.INSERT_UPDATE));
+        tableFillList.add(new TableFill("modified_time", FieldFill.INSERT_UPDATE));
+        tableFillList.add(new TableFill("creator", FieldFill.INSERT));
+        tableFillList.add(new TableFill("create_time", FieldFill.INSERT));
         StrategyConfig strategyConfig = new StrategyConfig();
         strategyConfig
                 .setCapitalMode(true)
@@ -95,9 +92,9 @@ public class TableCodeInitialization {
                         new PackageConfig()
                                 .setParent(PACKAGE)
                                 .setController("controller")
-                                .setEntity("domain")
-                                .setMapper("dao")
-                                .setXml("dao")
+                                .setEntity("model")
+                                .setMapper("mapper")
+                                .setXml("mapper")
                 )
                 .setTemplate(
                         new TemplateConfig()
